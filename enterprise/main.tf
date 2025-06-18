@@ -2,34 +2,6 @@
 # SPDX-License-Identifier: MPL-2.0
 
 #------------------------------------------------------------------------------
-# The best practice is to use remote state file and encrypt it since your
-# state files may contains sensitive data (secrets).
-#------------------------------------------------------------------------------
-# terraform {
-#       backend "s3" {
-#             bucket = "remote-terraform-state-dev"
-#             encrypt = true
-#             key = "terraform.tfstate"
-#             region = "us-east-1"
-#       }
-# }
-
-#-----------------------------------------------------------------------------------
-# To configure Transform secrets engine, you need vault provider v2.12.0 or later
-#-----------------------------------------------------------------------------------
-terraform {
-  required_providers {
-    vault = "~> 3.7.0"
-  }
-}
-
-#------------------------------------------------------------------------------
-# To leverage more than one namespace, define a vault provider per namespace
-#------------------------------------------------------------------------------
-
-provider "vault" {}
-
-#------------------------------------------------------------------------------
 # Create namespaces: finance, and engineering
 #------------------------------------------------------------------------------
 resource "vault_namespace" "finance" {
@@ -67,4 +39,53 @@ resource "vault_namespace" "vault_cloud" {
 resource "vault_namespace" "boundary" {
   namespace = vault_namespace.training.path_fq
   path = "boundary"
+}
+
+# create a kv v2 secrets engine in the root namespace
+resource "vault_mount" "kvv2" {
+  path        = "my-kvv2"
+  type        = "kv"
+  options     = { version = "2" }
+}
+
+# Create a kv v2 secrets with the data_json_wo argument
+resource "vault_kv_secret_v2" "db_root" {
+  mount                      = vault_mount.kvv2.path
+  name                       = "pgx-root"
+  data_json_wo                  = jsonencode(
+    {
+      password       = "root-user-password"
+    }
+  )
+  data_json_wo_version = 1
+}
+
+# create an ephemeral vault_kv_secret_v2 resource
+ephemeral "vault_kv_secret_v2" "db_secret" {
+  mount = vault_mount.kvv2.path
+  mount_id = vault_mount.kvv2.id
+  name = vault_kv_secret_v2.db_root.name
+}
+
+# mount a database secrets engine at the path "postgres"
+resource "vault_mount" "db" {
+  path = "postgres"
+  type = "database"
+}
+
+# create a database role for the postgres database with a
+# PostgreSQL Configuration option that uses the password_wo
+# to set the password
+resource "vault_database_secret_backend_connection" "postgres" {
+  backend       = vault_mount.db.path
+  name          = "learn-postrgres"
+  allowed_roles = ["*"]
+
+  postgresql {
+    connection_url = "postgresql://{{username}}:{{password}}@localhost:5432/postgres?sslmode=disable"
+    password_authentication = ""
+    username = "postgres"
+    password_wo = tostring(ephemeral.vault_kv_secret_v2.db_secret.data.password)
+    password_wo_version = 1
+  }
 }
