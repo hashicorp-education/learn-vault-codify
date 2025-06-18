@@ -798,3 +798,17 @@ Development mode should NOT be used in production installations!
 2025-06-18T13:23:12.909-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51684: client sent an HTTP request to an HTTPS server
 2025-06-18T13:23:27.914-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51694: client sent an HTTP request to an HTTPS server
 2025-06-18T13:23:42.920-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51703: client sent an HTTP request to an HTTPS server
+2025-06-18T13:23:57.925-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51715: client sent an HTTP request to an HTTPS server
+2025-06-18T13:24:12.904-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51735: client sent an HTTP request to an HTTPS server
+2025-06-18T13:24:27.915-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51749: client sent an HTTP request to an HTTPS server
+2025-06-18T13:24:42.903-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51763: client sent an HTTP request to an HTTPS server
+2025-06-18T13:24:57.912-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51776: client sent an HTTP request to an HTTPS server
+2025-06-18T13:25:12.908-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51791: client sent an HTTP request to an HTTPS server
+2025-06-18T13:25:27.906-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51799: client sent an HTTP request to an HTTPS server
+2025-06-18T13:25:42.909-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51809: client sent an HTTP request to an HTTPS server
+2025-06-18T13:25:57.913-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51819: client sent an HTTP request to an HTTPS server
+2025-06-18T13:26:12.911-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51838: client sent an HTTP request to an HTTPS server
+2025-06-18T13:26:27.915-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51847: client sent an HTTP request to an HTTPS server
+2025-06-18T13:26:42.917-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51861: client sent an HTTP request to an HTTPS server
+2025-06-18T13:26:57.912-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51869: client sent an HTTP request to an HTTPS server
+2025-06-18T13:27:12.914-0500 [INFO]  http: TLS handshake error from 127.0.0.1:51876: client sent an HTTP request to an HTTPS server
