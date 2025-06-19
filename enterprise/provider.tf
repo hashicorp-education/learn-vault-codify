@@ -7,6 +7,10 @@ terraform {
       source = "hashicorp/vault"
       version = "5.0.0"
     }
+    docker = {
+      source = "kreuzwerker/docker"
+      version = "3.0.2"
+    }
   }
 }
 
@@ -15,5 +19,9 @@ terraform {
 #------------------------------------------------------------------------------
 
 provider "vault" {
+  # Configuration options
+}
+
+provider "docker" {
   # Configuration options
 }
