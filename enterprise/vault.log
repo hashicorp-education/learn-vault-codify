@@ -1,0 +1,235 @@
+
+WARNING: storage configured to use "inmem" which is not supported for Vault
+Enterprise, must be "raft" or "consul"
+
+==> Vault server configuration:
+
+Administrative Namespace: 
+             Api Address: https://127.0.0.1:8200
+                     Cgo: disabled
+         Cluster Address: https://127.0.0.1:8201
+   Environment Variables: CDPATH, COLORTERM, COMMAND_MODE, DEFAULT_ARCH, DEFAULT_USER, DOTFILES, FZF_DEFAULT_OPTS, GIT_ASKPASS, GIT_BRANCH, GOBIN, GOPATH, GUILE_LOAD_COMPILED_PATH, GUILE_LOAD_PATH, GUILE_SYSTEM_EXTENSIONS_PATH, HISTSIZE, HOME, HOMEBREW_AUTO_UPDATE_SECS, HOMEBREW_CELLAR, HOMEBREW_NO_ANALYTICS, HOMEBREW_PREFIX, HOMEBREW_REPOSITORY, INFOPATH, INSTRUQT_REPORT_CRASHES, INSTRUQT_TELEMETRY, LANG, LESS, LOCAL_GITHUB, LOGNAME, LSCOLORS, MallocNanoZone, OLDPWD, ORIGINAL_XDG_CURRENT_DESKTOP, PAGER, PATH, PWD, SAVEHIST, SHELL, SHLVL, SKEW_CONFIG, SSH_AUTH_SOCK, TERM, TERM_PROGRAM, TERM_PROGRAM_VERSION, TF_CLI_CONFIG_FILE, TF_PLUGIN_CACHE_DIR, TMPDIR, USER, USER_ZDOTDIR, VAULT_ADDR, VAULT_CACERT, VAULT_LICENSE_PATH, VAULT_TOKEN, VSCODE_GIT_ASKPASS_EXTRA_ARGS, VSCODE_GIT_ASKPASS_MAIN, VSCODE_GIT_ASKPASS_NODE, VSCODE_GIT_IPC_HANDLE, VSCODE_INJECTION, VSCODE_PROFILE_INITIALIZED, XPC_FLAGS, XPC_SERVICE_NAME, ZDOTDIR, ZSH, _, __CFBundleIdentifier, __CF_USER_TEXT_ENCODING
+              Go Version: go1.24.3
+              Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", disable_request_limiter: "false", max_request_duration: "1m30s", max_request_size: "33554432", tls: "enabled")
+               Log Level: 
+                   Mlock: supported: false, enabled: false
+           Recovery Mode: false
+                 Storage: inmem
+                 Version: Vault v1.19.5+ent, built 2025-05-29T09:17:15Z
+             Version Sha: 4d2dc469d339b57c5aed9ff8c19ddeef3c22c832
+
+==> Vault server started! Log data will stream in below:
+
+2025-06-19T12:41:43.925-0500 [INFO]  proxy environment: http_proxy="" https_proxy="" no_proxy=""
+2025-06-19T12:41:43.927-0500 [INFO]  incrementing seal generation: generation=1
+2025-06-19T12:41:43.927-0500 [WARN]  no `api_addr` value specified in config or in VAULT_API_ADDR; falling back to detection if possible, but this value should be manually set
+2025-06-19T12:41:43.932-0500 [INFO]  core: using autoloaded license: license="{\"license_id\":\"ff897d4c-b567-be1e-e5b8-d989ce36ff8c\",\"customer_id\":\"1775706d-768b-91f0-e7c7-fe1c525001c3\",\"installation_id\":\"*\",\"issue_time\":\"2025-06-04T14:35:47.579102882Z\",\"start_time\":\"2025-06-03T00:00:00Z\",\"expiration_time\":\"2025-07-03T23:59:59.999Z\",\"termination_time\":\"2025-07-03T23:59:59.999Z\",\"flags\":{\"modules\":[\"multi-dc-scale\",\"governance-policy\",\"advanced-data-protection-key-management\",\"advanced-data-protection-transform\"]},\"features\":[\"HSM\",\"Performance Replication\",\"DR Replication\",\"MFA\",\"Sentinel\",\"Seal Wrapping\",\"Control Groups\",\"Performance Standby\",\"Namespaces\",\"KMIP\",\"Entropy Augmentation\",\"Transform Secrets Engine\",\"Lease Count Quotas\",\"Key Management Secrets Engine\",\"Automated Snapshots\",\"Key Management Transparent Data Encryption\",\"Secrets Sync\"],\"performance_standby_count\":9999}"
+2025-06-19T12:41:43.934-0500 [INFO]  core: Initializing version history cache for core
+2025-06-19T12:41:43.934-0500 [INFO]  events: Starting event system
+2025-06-19T12:41:43.937-0500 [INFO]  core: security barrier not initialized
+2025-06-19T12:41:43.939-0500 [INFO]  core: security barrier initialized: stored=1 shares=1 threshold=1
+2025-06-19T12:41:43.941-0500 [INFO]  core: post-unseal setup starting
+2025-06-19T12:41:43.942-0500 [INFO]  licensing: stored license removal was successful
+2025-06-19T12:41:43.948-0500 [INFO]  core: loaded wrapping token key
+2025-06-19T12:41:43.948-0500 [INFO]  core: successfully setup plugin runtime catalog
+2025-06-19T12:41:43.948-0500 [INFO]  core: successfully setup plugin catalog: plugin-directory=""
+2025-06-19T12:41:43.948-0500 [INFO]  core: no mounts; adding default mount table
+2025-06-19T12:41:43.952-0500 [INFO]  core: successfully mounted: type=cubbyhole version="v1.19.5+builtin.vault" path=cubbyhole/ namespace="ID: root. Path: "
+2025-06-19T12:41:43.957-0500 [INFO]  core: successfully mounted: type=system version="v1.19.5+builtin.vault" path=sys/ namespace="ID: root. Path: "
+2025-06-19T12:41:43.958-0500 [INFO]  core: successfully mounted: type=identity version="v1.19.5+builtin.vault" path=identity/ namespace="ID: root. Path: "
+2025-06-19T12:41:43.960-0500 [INFO]  core: successfully mounted: type=token version="v1.19.5+builtin.vault" path=token/ namespace="ID: root. Path: "
+2025-06-19T12:41:43.961-0500 [INFO]  rollback: Starting the rollback manager with 256 workers
+2025-06-19T12:41:43.961-0500 [INFO]  rollback: starting rollback manager
+2025-06-19T12:41:43.962-0500 [INFO]  core: restoring leases
+2025-06-19T12:41:43.962-0500 [INFO]  rotation-job-manager: starting rotation manager
+2025-06-19T12:41:43.964-0500 [INFO]  expiration: lease restore complete
+2025-06-19T12:41:43.964-0500 [INFO]  identity: entities restored
+2025-06-19T12:41:43.964-0500 [INFO]  identity: groups restored
+2025-06-19T12:41:43.964-0500 [INFO]  system.mfa: configurations restored
+2025-06-19T12:41:43.970-0500 [INFO]  core: stopping replication
+2025-06-19T12:41:43.970-0500 [INFO]  core: closed sync connection
+2025-06-19T12:41:43.970-0500 [INFO]  core: replication stopped
+2025-06-19T12:41:43.970-0500 [INFO]  core: setting up replication
+2025-06-19T12:41:43.971-0500 [INFO]  core: replicated cluster information not found or disabled, not activating client
+2025-06-19T12:41:43.971-0500 [INFO]  core: replication setup finished
+2025-06-19T12:41:43.971-0500 [INFO]  core: Recorded vault version: vault version=1.19.5 upgrade time="2025-06-19 17:41:43.971175 +0000 UTC" build date=2025-05-29T09:17:15Z
+2025-06-19T12:41:43.972-0500 [INFO]  core: post-unseal setup complete
+2025-06-19T12:41:43.973-0500 [INFO]  core: root token generated
+2025-06-19T12:41:43.973-0500 [INFO]  core: pre-seal teardown starting
+2025-06-19T12:41:43.973-0500 [INFO]  core: stopping replication
+2025-06-19T12:41:43.973-0500 [INFO]  core: closed sync connection
+2025-06-19T12:41:43.973-0500 [INFO]  core: replication stopped
+2025-06-19T12:41:43.973-0500 [INFO]  core: shutting down census manager
+2025-06-19T12:41:43.973-0500 [INFO]  rollback: stopping rollback manager
+2025-06-19T12:41:43.973-0500 [INFO]  core: pre-seal teardown complete
+2025-06-19T12:41:43.973-0500 [INFO]  core.cluster-listener.tcp: starting listener: listener_address=127.0.0.1:8201
+2025-06-19T12:41:43.974-0500 [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=127.0.0.1:8201
+2025-06-19T12:41:43.974-0500 [INFO]  core: post-unseal setup starting
+2025-06-19T12:41:43.974-0500 [INFO]  licensing: stored license removal was successful
+2025-06-19T12:41:43.974-0500 [INFO]  core: loaded wrapping token key
+2025-06-19T12:41:43.974-0500 [INFO]  core: successfully setup plugin runtime catalog
+2025-06-19T12:41:43.974-0500 [INFO]  core: successfully setup plugin catalog: plugin-directory=""
+2025-06-19T12:41:43.975-0500 [INFO]  core: successfully mounted: type=system version="v1.19.5+builtin.vault" path=sys/ namespace="ID: root. Path: "
+2025-06-19T12:41:43.975-0500 [INFO]  core: successfully mounted: type=identity version="v1.19.5+builtin.vault" path=identity/ namespace="ID: root. Path: "
+2025-06-19T12:41:43.975-0500 [INFO]  core: successfully mounted: type=cubbyhole version="v1.19.5+builtin.vault" path=cubbyhole/ namespace="ID: root. Path: "
+2025-06-19T12:41:43.975-0500 [INFO]  core: successfully mounted: type=token version="v1.19.5+builtin.vault" path=token/ namespace="ID: root. Path: "
+2025-06-19T12:41:43.975-0500 [INFO]  rollback: Starting the rollback manager with 256 workers
+2025-06-19T12:41:43.975-0500 [INFO]  rollback: starting rollback manager
+2025-06-19T12:41:43.975-0500 [INFO]  core: restoring leases
+2025-06-19T12:41:43.975-0500 [INFO]  rotation-job-manager: starting rotation manager
+2025-06-19T12:41:43.976-0500 [INFO]  identity: entities restored
+2025-06-19T12:41:43.976-0500 [INFO]  identity: groups restored
+2025-06-19T12:41:43.976-0500 [INFO]  system.mfa: configurations restored
+2025-06-19T12:41:43.976-0500 [INFO]  core: stopping replication
+2025-06-19T12:41:43.976-0500 [INFO]  core: closed sync connection
+2025-06-19T12:41:43.976-0500 [INFO]  core: replication stopped
+2025-06-19T12:41:43.976-0500 [INFO]  core: setting up replication
+2025-06-19T12:41:43.976-0500 [INFO]  core: replicated cluster information not found or disabled, not activating client
+2025-06-19T12:41:43.976-0500 [INFO]  core: replication setup finished
+2025-06-19T12:41:43.976-0500 [INFO]  expiration: lease restore complete
+2025-06-19T12:41:43.977-0500 [INFO]  core: post-unseal setup complete
+2025-06-19T12:41:43.977-0500 [INFO]  core: vault is unsealed
+2025-06-19T12:41:43.980-0500 [INFO]  expiration: revoked lease: lease_id=auth/token/root/h48d5d8f8a4fabf5464d4845dedb348aa79207d9b2738e8bd167bae7b08030c16
+2025-06-19T12:41:43.985-0500 [INFO]  core: successful mount: namespace="" path=secret/ type=kv version="v0.21.0+builtin"
+WARNING! dev mode is enabled! In this mode, Vault runs entirely in-memory
+and starts unsealed with a single unseal key. The root token is already
+authenticated to the CLI, so you can immediately begin using Vault.
+
+You may need to set the following environment variables:
+
+    $ export VAULT_ADDR='https://127.0.0.1:8200'
+    $ export VAULT_CACERT='/var/folders/xj/2xc76jys04x0kc9src604g7r0000gq/T/vault-tls2740985768/vault-ca.pem'
+
+
+The unseal key and root token are displayed below in case you want to
+seal/unseal the Vault or re-authenticate.
+
+Unseal Key: ZY4IHKwkVHa/kdv3v+Zk+6Nqixhy8mWxW5J+OQVO1XE=
+Root Token: root
+
+Development mode should NOT be used in production installations!
+
+2025-06-19T12:41:58.287-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55701: client sent an HTTP request to an HTTPS server
+2025-06-19T12:42:01.214-0500 [INFO]  core: successful mount: namespace=education/ path=sys/ type=ns_system version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.214-0500 [INFO]  core: successful mount: namespace=education/ path=identity/ type=ns_identity version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.215-0500 [INFO]  core: successful mount: namespace=education/ path=cubbyhole/ type=ns_cubbyhole version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.217-0500 [INFO]  core: enabled credential backend: path=token/ type=ns_token version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.218-0500 [INFO]  core: successful mount: namespace=finance/ path=sys/ type=ns_system version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.226-0500 [INFO]  core: successful mount: namespace=finance/ path=identity/ type=ns_identity version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.228-0500 [INFO]  core: successful mount: namespace=finance/ path=cubbyhole/ type=ns_cubbyhole version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.228-0500 [INFO]  core: enabled credential backend: path=token/ type=ns_token version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.229-0500 [INFO]  core: successful mount: namespace=engineering/ path=sys/ type=ns_system version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.234-0500 [INFO]  core: successful mount: namespace=engineering/ path=identity/ type=ns_identity version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.234-0500 [INFO]  core: successful mount: namespace=engineering/ path=cubbyhole/ type=ns_cubbyhole version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.234-0500 [INFO]  core: enabled credential backend: path=token/ type=ns_token version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.249-0500 [INFO]  core: successful mount: namespace=education/training/ path=sys/ type=ns_system version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.250-0500 [INFO]  core: successful mount: namespace=education/training/ path=identity/ type=ns_identity version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.250-0500 [INFO]  core: successful mount: namespace=education/training/ path=cubbyhole/ type=ns_cubbyhole version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.250-0500 [INFO]  core: enabled credential backend: path=token/ type=ns_token version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.276-0500 [INFO]  core: successful mount: namespace=education/training/boundary/ path=sys/ type=ns_system version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.277-0500 [INFO]  core: successful mount: namespace=education/training/boundary/ path=identity/ type=ns_identity version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.277-0500 [INFO]  core: successful mount: namespace=education/training/boundary/ path=cubbyhole/ type=ns_cubbyhole version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.277-0500 [INFO]  core: enabled credential backend: path=token/ type=ns_token version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.282-0500 [INFO]  core: successful mount: namespace=education/training/vault_cloud/ path=sys/ type=ns_system version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.285-0500 [INFO]  core: successful mount: namespace=education/training/vault_cloud/ path=identity/ type=ns_identity version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.285-0500 [INFO]  core: successful mount: namespace=education/training/vault_cloud/ path=cubbyhole/ type=ns_cubbyhole version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.285-0500 [INFO]  core: enabled credential backend: path=token/ type=ns_token version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.375-0500 [INFO]  core: successful mount: namespace="" path=transform/ type=transform version="v0.17.0+builtin"
+2025-06-19T12:42:01.377-0500 [INFO]  core: enabled credential backend: path=userpass/ type=userpass version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.378-0500 [INFO]  core: successful mount: namespace="" path=my-kvv2/ type=kv version="v0.21.0+builtin"
+2025-06-19T12:42:01.379-0500 [INFO]  secrets.database.database_11bd3fb8: initializing database rotation queue
+2025-06-19T12:42:01.379-0500 [INFO]  core: successful mount: namespace="" path=postgres/ type=database version="v1.19.5+builtin.vault"
+2025-06-19T12:42:01.382-0500 [INFO]  secrets.database.database_11bd3fb8: populating role rotation queue
+2025-06-19T12:42:01.383-0500 [INFO]  core: successful mount: namespace=finance/ path=kv-v2/ type=kv version="v0.21.0+builtin"
+2025-06-19T12:42:01.383-0500 [INFO]  secrets.database.database_11bd3fb8: starting periodic ticker
+2025-06-19T12:42:01.632-0500 [INFO]  core: enabled credential backend: path=approle/ type=approle version="v1.19.5+builtin.vault"
+2025-06-19T12:42:13.279-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55714: client sent an HTTP request to an HTTPS server
+2025-06-19T12:42:28.268-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55725: client sent an HTTP request to an HTTPS server
+2025-06-19T12:42:43.268-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55732: client sent an HTTP request to an HTTPS server
+2025-06-19T12:42:58.260-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55737: client sent an HTTP request to an HTTPS server
+2025-06-19T12:43:13.264-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55745: client sent an HTTP request to an HTTPS server
+2025-06-19T12:43:28.267-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55751: client sent an HTTP request to an HTTPS server
+2025-06-19T12:43:43.265-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55765: client sent an HTTP request to an HTTPS server
+2025-06-19T12:43:58.257-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55773: client sent an HTTP request to an HTTPS server
+2025-06-19T12:44:13.289-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55776: client sent an HTTP request to an HTTPS server
+2025-06-19T12:44:28.262-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55783: client sent an HTTP request to an HTTPS server
+2025-06-19T12:44:43.265-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55789: client sent an HTTP request to an HTTPS server
+2025-06-19T12:44:58.259-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55796: client sent an HTTP request to an HTTPS server
+2025-06-19T12:45:13.260-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55810: client sent an HTTP request to an HTTPS server
+2025-06-19T12:45:28.260-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55816: client sent an HTTP request to an HTTPS server
+2025-06-19T12:45:43.263-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55820: client sent an HTTP request to an HTTPS server
+2025-06-19T12:45:58.258-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55824: client sent an HTTP request to an HTTPS server
+2025-06-19T12:46:13.297-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55829: client sent an HTTP request to an HTTPS server
+2025-06-19T12:46:28.268-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55837: client sent an HTTP request to an HTTPS server
+2025-06-19T12:46:43.264-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55843: client sent an HTTP request to an HTTPS server
+2025-06-19T12:46:58.262-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55851: client sent an HTTP request to an HTTPS server
+2025-06-19T12:47:13.266-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55855: client sent an HTTP request to an HTTPS server
+2025-06-19T12:47:28.265-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55863: client sent an HTTP request to an HTTPS server
+2025-06-19T12:47:43.260-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55868: client sent an HTTP request to an HTTPS server
+2025-06-19T12:47:58.268-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55879: client sent an HTTP request to an HTTPS server
+2025-06-19T12:48:13.254-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55883: client sent an HTTP request to an HTTPS server
+2025-06-19T12:48:28.257-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55888: client sent an HTTP request to an HTTPS server
+2025-06-19T12:48:43.261-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55892: client sent an HTTP request to an HTTPS server
+2025-06-19T12:48:58.267-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55897: client sent an HTTP request to an HTTPS server
+2025-06-19T12:49:13.259-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55902: client sent an HTTP request to an HTTPS server
+2025-06-19T12:49:28.262-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55906: client sent an HTTP request to an HTTPS server
+2025-06-19T12:49:43.257-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55910: client sent an HTTP request to an HTTPS server
+2025-06-19T12:49:58.268-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55916: client sent an HTTP request to an HTTPS server
+2025-06-19T12:50:13.260-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55942: client sent an HTTP request to an HTTPS server
+2025-06-19T12:50:28.257-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55947: client sent an HTTP request to an HTTPS server
+2025-06-19T12:50:43.266-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55951: client sent an HTTP request to an HTTPS server
+2025-06-19T12:50:58.261-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55956: client sent an HTTP request to an HTTPS server
+2025-06-19T12:51:13.262-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55960: client sent an HTTP request to an HTTPS server
+2025-06-19T12:51:28.262-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55970: client sent an HTTP request to an HTTPS server
+2025-06-19T12:51:43.260-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55975: client sent an HTTP request to an HTTPS server
+2025-06-19T12:51:58.259-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55981: client sent an HTTP request to an HTTPS server
+2025-06-19T12:52:13.293-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55989: client sent an HTTP request to an HTTPS server
+2025-06-19T12:52:28.262-0500 [INFO]  http: TLS handshake error from 127.0.0.1:55995: client sent an HTTP request to an HTTPS server
+2025-06-19T12:52:43.257-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56001: client sent an HTTP request to an HTTPS server
+2025-06-19T12:52:58.268-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56004: client sent an HTTP request to an HTTPS server
+2025-06-19T12:53:13.256-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56009: client sent an HTTP request to an HTTPS server
+2025-06-19T12:53:28.256-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56013: client sent an HTTP request to an HTTPS server
+2025-06-19T12:53:43.256-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56018: client sent an HTTP request to an HTTPS server
+2025-06-19T12:53:58.258-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56021: client sent an HTTP request to an HTTPS server
+2025-06-19T12:54:13.256-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56026: client sent an HTTP request to an HTTPS server
+2025-06-19T12:54:28.255-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56031: client sent an HTTP request to an HTTPS server
+2025-06-19T12:54:43.272-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56042: client sent an HTTP request to an HTTPS server
+2025-06-19T12:54:58.257-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56047: client sent an HTTP request to an HTTPS server
+2025-06-19T12:55:13.258-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56062: client sent an HTTP request to an HTTPS server
+2025-06-19T12:55:28.253-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56068: client sent an HTTP request to an HTTPS server
+2025-06-19T12:55:43.262-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56073: client sent an HTTP request to an HTTPS server
+2025-06-19T12:55:58.256-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56077: client sent an HTTP request to an HTTPS server
+2025-06-19T12:56:13.267-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56082: client sent an HTTP request to an HTTPS server
+2025-06-19T12:56:28.251-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56090: client sent an HTTP request to an HTTPS server
+2025-06-19T12:56:43.256-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56096: client sent an HTTP request to an HTTPS server
+2025-06-19T12:56:58.255-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56104: client sent an HTTP request to an HTTPS server
+2025-06-19T12:57:13.255-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56109: client sent an HTTP request to an HTTPS server
+2025-06-19T12:57:28.265-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56113: client sent an HTTP request to an HTTPS server
+2025-06-19T12:57:43.254-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56117: client sent an HTTP request to an HTTPS server
+2025-06-19T12:57:58.254-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56121: client sent an HTTP request to an HTTPS server
+2025-06-19T12:58:13.254-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56126: client sent an HTTP request to an HTTPS server
+2025-06-19T12:58:28.249-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56129: client sent an HTTP request to an HTTPS server
+2025-06-19T12:58:43.259-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56135: client sent an HTTP request to an HTTPS server
+2025-06-19T12:58:58.257-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56140: client sent an HTTP request to an HTTPS server
+2025-06-19T12:59:13.269-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56148: client sent an HTTP request to an HTTPS server
+2025-06-19T12:59:28.255-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56164: client sent an HTTP request to an HTTPS server
+2025-06-19T12:59:43.259-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56170: client sent an HTTP request to an HTTPS server
+2025-06-19T12:59:58.252-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56174: client sent an HTTP request to an HTTPS server
+2025-06-19T13:00:13.256-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56190: client sent an HTTP request to an HTTPS server
+2025-06-19T13:00:28.247-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56194: client sent an HTTP request to an HTTPS server
+2025-06-19T13:00:43.255-0500 [INFO]  http: TLS handshake error from 127.0.0.1:56202: client sent an HTTP request to an HTTPS server
+==> Vault shutdown triggered
+2025-06-19T13:00:46.229-0500 [INFO]  core: marked as sealed
+2025-06-19T13:00:46.229-0500 [INFO]  core: pre-seal teardown starting
+2025-06-19T13:00:46.230-0500 [INFO]  core: stopping replication
+2025-06-19T13:00:46.230-0500 [INFO]  core: closed sync connection
+2025-06-19T13:00:46.230-0500 [INFO]  core: replication stopped
+2025-06-19T13:00:46.230-0500 [INFO]  core: shutting down census manager
+2025-06-19T13:00:46.231-0500 [INFO]  rollback: stopping rollback manager
+2025-06-19T13:00:46.233-0500 [INFO]  secrets.database.database_11bd3fb8: stopping periodic ticker
+2025-06-19T13:00:46.234-0500 [INFO]  core: pre-seal teardown complete
+2025-06-19T13:00:46.735-0500 [INFO]  core: stopping cluster listeners
+2025-06-19T13:00:46.735-0500 [INFO]  core.cluster-listener: forwarding rpc listeners stopped
+2025-06-19T13:00:46.898-0500 [INFO]  core.cluster-listener: rpc listeners successfully shut down
+2025-06-19T13:00:46.899-0500 [INFO]  core: cluster listeners successfully shut down
+2025-06-19T13:00:46.900-0500 [INFO]  core: vault is sealed

@@ -50,11 +50,11 @@ resource "vault_mount" "kvv2" {
 
 # Create a kv v2 secrets with the data_json_wo argument
 resource "vault_kv_secret_v2" "db_root" {
-  mount                      = vault_mount.kvv2.path
-  name                       = "pgx-root"
-  data_json_wo                  = jsonencode(
+  mount        = vault_mount.kvv2.path
+  name         = "pgx-root"
+  data_json_wo = jsonencode(
     {
-      password       = "root-user-password"
+      password = "root-user-password"
     }
   )
   data_json_wo_version = 1
@@ -73,12 +73,29 @@ resource "vault_mount" "db" {
   type = "database"
 }
 
+# Get the latest PostgreSQL image
+resource "docker_image" "postgres" {
+  name = "postgres:latest"
+}
+
+# Start a PostgreSQL container
+resource "docker_container" "postgres" {
+  name  = "learn-postgres"
+  image = docker_image.postgres.image_id
+  env = ["POSTGRES_USER=postgres", "POSTGRES_PASSWORD=root-user-password"]
+  ports {
+    internal = 5432
+    external = 5432
+    }
+  rm = true
+}
+
 # create a database role for the postgres database with a
 # PostgreSQL Configuration option that uses the password_wo
 # to set the password
 resource "vault_database_secret_backend_connection" "postgres" {
   backend       = vault_mount.db.path
-  name          = "learn-postrgres"
+  name          = docker_container.postgres.name # "learn-postrgres"
   allowed_roles = ["*"]
 
   postgresql {
