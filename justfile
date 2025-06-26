@@ -26,13 +26,11 @@ clean-all: clean
 [group('enterprise')]
 clean: stop
    echo ">> running $0"
-   rm -rf .terraform .terraform.lock.hcl terraform.tfstate tf.plan terraform.tfstate.backup
+   rm -rf .terraform .terraform.lock.hcl terraform.tfstate tf.plan terraform.tfstate.backup vault.log
 
 [group('enterprise')]
 @deploy:
    echo ">> running $0"
-   -docker run --detach --name learn-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=root-user-password -p 5432:5432 --rm postgres
-   sleep 5
    terraform apply -auto-approve
 
 [group('enterprise')]
@@ -46,6 +44,9 @@ clean: stop
    terraform init
    nohup $(brew --prefix vault-enterprise)/bin/vault server -dev -dev-root-token-id root  -dev-tls > vault.log 2>&1 &
    echo "go into vault.log and find the vaule for VAULT_CACERT and export it"
+   sleep 5
+   cat vault.log | grep VAULT_CACERT=
+
 [group('enterprise')]
 @test:
    echo ">> running $0"
