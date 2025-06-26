@@ -90,10 +90,20 @@ resource "docker_container" "postgres" {
   rm = true
 }
 
+# This resource will destroy (potentially immediately) after null_resource.next
+resource "null_resource" "previous" {}
+
+resource "time_sleep" "wait_5_seconds" {
+  depends_on = [null_resource.previous]
+
+  create_duration = "5s"
+}
+
 # create a database role for the postgres database with a
 # PostgreSQL Configuration option that uses the password_wo
 # to set the password
 resource "vault_database_secret_backend_connection" "postgres" {
+  depends_on = [time_sleep.wait_5_seconds]
   backend       = vault_mount.db.path
   name          = docker_container.postgres.name # "learn-postrgres"
   allowed_roles = ["*"]
