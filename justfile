@@ -57,3 +57,8 @@ clean: stop
    echo ">> running $0"
    -docker stop $(docker ps -f name=learn-postgres -q)
    -pkill vault # ignore if vault is not running
+
+[group('enterprise')]
+test_this:
+   echo ">> running $0"
+   eval $(grep -o 'export VAULT_CACERT=.*' vault.log )
