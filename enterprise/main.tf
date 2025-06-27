@@ -90,13 +90,10 @@ resource "docker_container" "postgres" {
   rm = true
 }
 
-# This resource will destroy (potentially immediately) after null_resource.next
-resource "null_resource" "previous" {}
-
+# Add a sleep resource to wait for the PostgreSQL container to be ready
 resource "time_sleep" "wait_5_seconds" {
-  depends_on = [null_resource.previous]
-
-  create_duration = "5s"
+  depends_on = [docker_container.postgres]
+  create_duration = "7s"
 }
 
 # create a database role for the postgres database with a
