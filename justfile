@@ -6,7 +6,7 @@ set working-directory := "enterprise"
 default: all
 all: instructions
 prep: version start
-rest: deploy status test
+install: deploy status test
 clean-all: clean
 
 [group('enterprise')]
@@ -14,7 +14,7 @@ clean-all: clean
    echo ">> running $0"
    echo "1. run 'just prep'"
    echo "2. export the VAULT_CACERT variable"
-   echo "3. run 'just rest'"
+   echo "3. run 'just install'"
 
 [group('enterprise')]
 @version:
@@ -37,15 +37,16 @@ clean: stop
 @status:
    echo ">> running $0"
    vault status
+   docker ps --filter "name=learn-postgres"
 
 [group('enterprise')]
 @start: clean
    echo ">> running $0"
    terraform init
    nohup $(brew --prefix vault-enterprise)/bin/vault server -dev -dev-root-token-id root  -dev-tls > vault.log 2>&1 &
-   echo "go into vault.log and find the vaule for VAULT_CACERT and export it"
+   echo "go into vault.log and find the value for VAULT_CACERT and export it"
    sleep 5
-   cat vault.log | grep VAULT_CACERT=
+   -cat vault.log | grep VAULT_CACERT=
 
 [group('enterprise')]
 @test:
@@ -57,3 +58,8 @@ clean: stop
    echo ">> running $0"
    -docker stop $(docker ps -f name=learn-postgres -q)
    -pkill vault # ignore if vault is not running
+
+[group('enterprise')]
+@connect-postgres:
+   echo ">> running $0"
+   docker exec -it learn-postgres psql -U postgres
